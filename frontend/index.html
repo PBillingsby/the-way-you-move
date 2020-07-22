@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- <script src="scripts/userScript.js"></script> -->
+  <script src="script.js"></script>
+  <title>The Way You Move</title>
+</head>
+<body>
+  <header class="navbar navbar-light">
+    <span id="logo d-inline-block">
+      <img src="https://www.pngrepo.com/download/147447/suitcase.png" alt="" class="logo-img">
+      <h5>TheWayYouMove</h5>
+    </span>
+  </header>
+  
+  <div class="container main-page">
+    <div id="destinations" class="mx-auto text-center">
+      <button type="button" id="destinationButton" class="mx-auto btn btn-outline-dark" onclick="addDestination()">Add Trip</button>
+      <div class="card" id="destination-form">
+        <div class="card-body">
+          <form onsubmit="handleNewDestination()">
+            <h4>Destination Information</h4>
+            <div class="p-2">
+              <input type="text" placeholder="City" id="city"> 
+            </div>
+            <div>
+              <input type="text" placeholder="Country" id="country"> 
+            </div>
+            <input type="submit" value="Off We Go">
+          </form>
+        </div>
+      </div>
+     
+    </div>
+    <div id="links" class="text-center">
+      <button class="btn btn-outline-dark" id="destination-fetch" >Destinations</button>
+      <div id="my-destinations" class="text-center"></div>
+    </div>
+  </div>
+</body>
+</html>
