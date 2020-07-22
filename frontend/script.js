@@ -21,7 +21,7 @@ function showDestination(destinationId) {
   fetch(BASE_URL + 'destinations/' + destinationId)
   .then(resp => resp.json())
   .then(destinationObj => {
-    document.getElementById('my-destinations').innerHTML = `<`
+    destinationShowCard(destinationObj.data.attributes)
   })
 }
 
@@ -34,8 +34,20 @@ function destinationCard(attributes) { // creates destination cards
   let cardDiv = document.createElement('div')
   cardDiv.classList.add('card', 'mx-auto')
   cardDiv.style.width = "15rem"
-  cardDiv.innerHTML = `<div class="card-body"><h5 class="card-title">${attributes.city}</h5><strong>Country:</strong> ${attributes.country}</p><button onclick="showDestination(${attributes.id})">View ${attributes.city}</button></div>`
+  cardDiv.innerHTML = `<div class="card-body" id="location[${attributes.id}]"><h5 class="card-title">${attributes.city}</h5><strong>Country:</strong> <p>${attributes.country}</p><button onclick="showDestination(${attributes.id})">View ${attributes.city}</button></div>`
   document.getElementById('my-destinations').append(cardDiv)
+}
+
+function destinationShowCard(destination) {
+  let destinationDiv = document.getElementById(`location[${destination.id}]`)
+  let ul = document.createElement('ul')
+  destination.sights.forEach(sight => {
+    destinationDiv.innerHTML += `<li class="p-4">${sight.name} - ${sight.sight_type}</li>`
+  })
+
+  destinationDiv.appendChild(ul)
+  // div.innerHTML = `<div class="card-body"><h5 class="card-title">${destination.city}</h5><strong>Country:</strong> <p>${destination.country}</p>`
+  // document.getElementById('my-destinations').append(div)
 }
 
 function addDestination() { // removes button from DOM to display new destination form
