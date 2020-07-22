@@ -67,6 +67,8 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.9.0)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.13.1)
     geocoder (1.6.3)
     globalid (0.4.2)
@@ -164,6 +166,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   dotenv-rails
+  fast_jsonapi
   geocoder
   httparty
   listen (~> 3.2)
